@@ -74,8 +74,8 @@ export default function AboutPage({ onOpenEnquiry }) {
           <div className="lg:col-span-6">
             <div className="rounded-xl overflow-hidden shadow-luxury border border-gold-subtle img-zoom-container">
               <img
-                src="/images/img_3.jpg"
-                alt="Shlloka Yatra Expedition Convoy"
+                src="/images/badrinath-himalaya.jpg"
+                alt="Sacred Himalayan Shrines and Pilgrim Path"
                 className="w-full h-[360px] object-cover object-center"
               />
             </div>

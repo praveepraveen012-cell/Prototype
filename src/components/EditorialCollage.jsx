@@ -12,34 +12,34 @@ export default function EditorialCollage() {
       aspect: 'aspect-[16/10]',
     },
     {
-      src: '/images/img_7.jpg',
-      title: 'Sacred Shore of Lake Manasarovar',
-      location: 'Chiu Gompa · 4,590 m',
-      caption: 'The mirror-like turquoise waters born of Brahma’s mind, reflecting Mount Kailash at sunrise.',
+      src: '/images/trans-himalayan-stupa.jpg',
+      title: 'Trans-Himalayan Stupa & Prayer Flags',
+      location: 'High Plateau Pass · 4,200 m',
+      caption: 'Ancient Buddhist chortens and fluttering wind-horse prayer flags blessing pilgrims crossing into Western Tibet.',
       span: 'md:col-span-4 md:row-span-1',
       aspect: 'aspect-[4/3]',
     },
     {
-      src: '/images/img_8.jpg',
-      title: 'Crossing Dolma La Pass',
-      location: 'The Highest Ascent · 5,650 m',
-      caption: 'Pilgrims tying sacred prayer flags over the crest under the protection of Mother Tara.',
+      src: '/images/kedarnath-sacred-peak.jpg',
+      title: 'Kedarnath Dham & The Himalayan Shiva Trail',
+      location: 'Garhwal Himalaya · 3,583 m',
+      caption: 'Venerating Mahadev in the great Himalayan sanctuary, philosophically linked with the supreme Kailash Parikrama.',
       span: 'md:col-span-4 md:row-span-1',
       aspect: 'aspect-[4/3]',
     },
     {
-      src: '/images/img_9.jpg',
-      title: 'Yamdwar: The Gate of Salvation',
-      location: 'Tarboche · 4,730 m',
-      caption: 'Passing through the celestial threshold where physical self gives way to the sacred circumambulation.',
+      src: '/images/badrinath-himalaya.jpg',
+      title: 'Badrinath & Nilkantha Ridge',
+      location: 'Alaknanda Valley · 3,133 m',
+      caption: 'Sacred Himalayan architecture beneath towering snow peaks where ancient rishis meditated upon cosmic order.',
       span: 'md:col-span-6 md:row-span-1',
       aspect: 'aspect-[16/9]',
     },
     {
-      src: '/images/img_10.jpg',
-      title: 'Potala Palace & Lhasa Heritage',
-      location: 'Lhasa · 3,650 m',
-      caption: 'The architectural crown of Tibetan history included in our luxury flight options.',
+      src: '/images/himalayan-heritage-temple.jpg',
+      title: 'Kathmandu Valley & Dhulikhel Sanctuaries',
+      location: 'Nepal Hills · 1,550 m',
+      caption: 'Multi-tiered pagoda shrines nestled in lush mountain orchards where pilgrims acclimatise and receive pre-yatra blessings.',
       span: 'md:col-span-6 md:row-span-1',
       aspect: 'aspect-[16/9]',
     },
@@ -60,7 +60,7 @@ export default function EditorialCollage() {
             </h2>
           </div>
           <p className="max-w-md text-xs sm:text-sm text-stone mt-4 md:mt-0 font-light leading-relaxed">
-            Asymmetrical vistas from the roof of the world. Each landmark represents an eternal station of contemplation, prayer, and inner renewal.
+            Asymmetrical vistas from the roof of the world. Ancient shrines, stupas, and glacial peaks marking stations of contemplation, prayer, and inner renewal.
           </p>
         </div>
 
@@ -102,4 +102,3 @@ export default function EditorialCollage() {
     </section>
   );
 }
-

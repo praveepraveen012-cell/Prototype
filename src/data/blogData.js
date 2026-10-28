@@ -11,7 +11,7 @@ export const BLOG_POSTS = [
       role: "Vedic Scholar & Himalayan Pilgrimage Historian",
       avatar: "/images/img_1.jpg",
     },
-    coverImage: "/images/img_6.jpg",
+    coverImage: "/images/kedarnath-sacred-peak.jpg",
     content: [
       {
         type: "paragraph",
@@ -61,7 +61,7 @@ export const BLOG_POSTS = [
       role: "High-Altitude Medicine Specialist & Expedition Advisor",
       avatar: "/images/img_2.jpg",
     },
-    coverImage: "/images/img_7.jpg",
+    coverImage: "/images/trans-himalayan-stupa.jpg",
     content: [
       {
         type: "paragraph",
@@ -107,7 +107,7 @@ export const BLOG_POSTS = [
       role: "Pilgrimage Curator & Vedic Essayist",
       avatar: "/images/img_1.jpg",
     },
-    coverImage: "/images/img_8.jpg",
+    coverImage: "/images/badrinath-himalaya.jpg",
     content: [
       {
         type: "paragraph",
@@ -144,7 +144,7 @@ export const BLOG_POSTS = [
       role: "Chief Expedition Leader (14 Kailash Circuits)",
       avatar: "/images/img_2.jpg",
     },
-    coverImage: "/images/img_9.jpg",
+    coverImage: "/images/kedarnath-twilight.jpg",
     content: [
       {
         type: "paragraph",
@@ -184,7 +184,7 @@ export const BLOG_POSTS = [
       role: "Vedic Scholar & Himalayan Pilgrimage Historian",
       avatar: "/images/img_1.jpg",
     },
-    coverImage: "/images/img_10.jpg",
+    coverImage: "/images/himalayan-heritage-temple.jpg",
     content: [
       {
         type: "paragraph",
@@ -206,4 +206,3 @@ export const BLOG_POSTS = [
     ]
   }
 ];
-

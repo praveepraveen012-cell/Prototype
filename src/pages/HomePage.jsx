@@ -76,6 +76,22 @@ export default function HomePage({ onOpenEnquiry }) {
                 Circumambulating the sacred 52-kilometre trail around Mount Kailash—the timeless Parikrama—is believed to cleanse the karmic impressions of a lifetime. Coupled with the purifying dawn rituals upon the celestial waters of Lake Manasarovar, this expedition is an inner transformation disguised as an arduous Himalayan trek.
               </p>
 
+              {/* Sacred Trail Preview Inset */}
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="rounded-lg overflow-hidden border border-gold-subtle relative aspect-[16/10] group">
+                  <img src="/images/kedarnath-sacred-peak.jpg" alt="Kedarnath & Himalayan Shrines" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-evergreen/85 via-transparent to-transparent flex items-end p-2.5">
+                    <span className="text-[10px] text-ivory font-serif">Kedarnath & Himalayan Shiva Trail</span>
+                  </div>
+                </div>
+                <div className="rounded-lg overflow-hidden border border-gold-subtle relative aspect-[16/10] group">
+                  <img src="/images/trans-himalayan-stupa.jpg" alt="Trans-Himalayan Stupas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-evergreen/85 via-transparent to-transparent flex items-end p-2.5">
+                    <span className="text-[10px] text-ivory font-serif">Trans-Himalayan Ridge Stupas</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="pt-4 flex flex-wrap items-center gap-6">
                 <Link
                   to="/the-journey"

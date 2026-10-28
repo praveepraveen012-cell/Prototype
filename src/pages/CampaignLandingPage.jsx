@@ -29,9 +29,9 @@ export default function CampaignLandingPage() {
         {/* Background Visual */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/img_12.jpg"
+            src="/images/kedarnath-sacred-peak.jpg"
             alt="Kailash Mansarovar Parikrama 2027"
-            className="w-full h-full object-cover object-center opacity-35 scale-105"
+            className="w-full h-full object-cover object-center opacity-30 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-evergreen via-evergreen/85 to-evergreen/60" />
         </div>

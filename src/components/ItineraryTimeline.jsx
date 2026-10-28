@@ -7,6 +7,15 @@ export default function ItineraryTimeline({ initialRoute = 1, title, subtitle })
   const days = ITINERARY_DATA[selectedRoute] || ITINERARY_DATA[1];
   const currentPackage = PACKAGES.find((p) => p.routeNumber === selectedRoute);
 
+  const getDayImage = (dayNum) => {
+    if (dayNum === 2) return { src: '/images/himalayan-heritage-temple.jpg', caption: 'Pashupatinath & Dhulikhel Heritage' };
+    if (dayNum === 3) return { src: '/images/trans-himalayan-stupa.jpg', caption: 'Trans-Himalayan Stupa & Ridge' };
+    if (dayNum === 6) return { src: '/images/img_7.jpg', caption: 'First Darshan of Manasarovar' };
+    if (dayNum === 8) return { src: '/images/img_6.jpg', caption: 'North Face of Kailash at Diraphuk' };
+    if (dayNum === 9) return { src: '/images/kedarnath-twilight.jpg', caption: 'High Himalayan Pass Crossing' };
+    return null;
+  };
+
   return (
     <div className="w-full">
       {/* Header */}
@@ -75,6 +84,7 @@ export default function ItineraryTimeline({ initialRoute = 1, title, subtitle })
           const isHighPass = item.altitude === '5,650 m';
           const isLake = item.title.includes('Manasarovar');
           const isKailashFace = item.title.includes('Diraphuk') || item.title.includes('Parikrama');
+          const dayImage = getDayImage(item.day);
 
           return (
             <div key={item.day} className="relative group">
@@ -148,6 +158,22 @@ export default function ItineraryTimeline({ initialRoute = 1, title, subtitle })
                 >
                   {item.desc}
                 </p>
+
+                {/* Day Visual Thumbnail if available */}
+                {dayImage && (
+                  <div className="mt-4 pt-3 border-t border-gold/20 flex items-center space-x-3">
+                    <div className="w-16 h-12 rounded overflow-hidden shrink-0 border border-gold/40">
+                      <img
+                        src={dayImage.src}
+                        alt={dayImage.caption}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <span className="text-[11px] text-stone italic">
+                      {dayImage.caption}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           );
@@ -156,4 +182,3 @@ export default function ItineraryTimeline({ initialRoute = 1, title, subtitle })
     </div>
   );
 }
-
