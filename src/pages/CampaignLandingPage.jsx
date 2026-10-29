@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Calendar, Sparkles, Check, ArrowRight, Phone, Mail, Award, Clock, MapPin, Users, HeartHandshake, Send, CheckCircle2 } from 'lucide-react';
 import { DEPARTURES, PACKAGES, INCLUSIONS_EXCLUSIONS, FAQS, BRAND } from '../data/yatraData';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function CampaignLandingPage() {
   const [selectedBatch, setSelectedBatch] = useState('1');
@@ -29,7 +30,7 @@ export default function CampaignLandingPage() {
         {/* Background Visual */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/kedarnath-sacred-peak.jpg"
+            src={assetUrl('/images/kedarnath-sacred-peak.jpg')}
             alt="Kailash Mansarovar Parikrama 2027"
             className="w-full h-full object-cover object-center opacity-30 scale-105"
           />

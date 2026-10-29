@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Calendar, Clock, User, ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogData';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function BlogListPage() {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
@@ -49,7 +50,7 @@ export default function BlogListPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
               <div className="lg:col-span-7 aspect-[16/10] lg:aspect-auto min-h-[340px] relative overflow-hidden img-zoom-container">
                 <img
-                  src={featuredPost.coverImage}
+                  src={assetUrl(featuredPost.coverImage)}
                   alt={featuredPost.title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
@@ -121,7 +122,7 @@ export default function BlogListPage() {
               <div>
                 <div className="aspect-[16/10] overflow-hidden relative img-zoom-container">
                   <img
-                    src={post.coverImage}
+                    src={assetUrl(post.coverImage)}
                     alt={post.title}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />

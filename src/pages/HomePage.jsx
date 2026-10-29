@@ -10,6 +10,7 @@ import PreparationTabs from '../components/PreparationTabs';
 import FaqAccordion from '../components/FaqAccordion';
 import { HIGHLIGHTS_METRICS, PACKAGES, BRAND } from '../data/yatraData';
 import { BLOG_POSTS } from '../data/blogData';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function HomePage({ onOpenEnquiry }) {
   return (
@@ -26,7 +27,7 @@ export default function HomePage({ onOpenEnquiry }) {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-luxury border border-gold-subtle img-zoom-container">
                 <img
-                  src="/images/img_1.jpg"
+                  src={assetUrl('/images/img_1.jpg')}
                   alt="Sacred Mount Kailash Darshan"
                   className="w-full h-[460px] sm:h-[540px] object-cover object-center"
                 />
@@ -79,13 +80,13 @@ export default function HomePage({ onOpenEnquiry }) {
               {/* Sacred Trail Preview Inset */}
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <div className="rounded-lg overflow-hidden border border-gold-subtle relative aspect-[16/10] group">
-                  <img src="/images/kedarnath-sacred-peak.jpg" alt="Kedarnath & Himalayan Shrines" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={assetUrl('/images/kedarnath-sacred-peak.jpg')} alt="Kedarnath & Himalayan Shrines" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-evergreen/85 via-transparent to-transparent flex items-end p-2.5">
                     <span className="text-[10px] text-ivory font-serif">Kedarnath & Himalayan Shiva Trail</span>
                   </div>
                 </div>
                 <div className="rounded-lg overflow-hidden border border-gold-subtle relative aspect-[16/10] group">
-                  <img src="/images/trans-himalayan-stupa.jpg" alt="Trans-Himalayan Stupas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={assetUrl('/images/trans-himalayan-stupa.jpg')} alt="Trans-Himalayan Stupas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-evergreen/85 via-transparent to-transparent flex items-end p-2.5">
                     <span className="text-[10px] text-ivory font-serif">Trans-Himalayan Ridge Stupas</span>
                   </div>
@@ -205,7 +206,7 @@ export default function HomePage({ onOpenEnquiry }) {
                 <div>
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img
-                      src={post.coverImage}
+                      src={assetUrl(post.coverImage)}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
@@ -252,7 +253,7 @@ export default function HomePage({ onOpenEnquiry }) {
         {/* Full-width landscape backdrop */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/img_11.jpg"
+            src={assetUrl('/images/img_11.jpg')}
             alt="Mount Kailash at Twilight"
             className="w-full h-full object-cover object-center opacity-30"
           />

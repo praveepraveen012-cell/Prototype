@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Heart, Award, Users, Compass, ArrowRight, Sparkles } from 'lucide-react';
 import { BRAND } from '../data/yatraData';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function AboutPage({ onOpenEnquiry }) {
   const pillars = [
@@ -74,7 +75,7 @@ export default function AboutPage({ onOpenEnquiry }) {
           <div className="lg:col-span-6">
             <div className="rounded-xl overflow-hidden shadow-luxury border border-gold-subtle img-zoom-container">
               <img
-                src="/images/badrinath-himalaya.jpg"
+                src={assetUrl('/images/badrinath-himalaya.jpg')}
                 alt="Sacred Himalayan Shrines and Pilgrim Path"
                 className="w-full h-[360px] object-cover object-center"
               />

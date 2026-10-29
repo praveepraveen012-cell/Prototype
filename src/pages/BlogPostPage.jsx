@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Clock, Calendar, User, Share2, Compass, Sparkles, ChevronRight } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogData';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function BlogPostPage() {
   const { slug } = useParams();
@@ -48,7 +49,7 @@ export default function BlogPostPage() {
         {/* Cover Image */}
         <div className="rounded-2xl overflow-hidden shadow-luxury border border-gold-subtle mb-12 aspect-[16/10]">
           <img
-            src={post.coverImage}
+            src={assetUrl(post.coverImage)}
             alt={post.title}
             className="w-full h-full object-cover object-center"
           />
@@ -113,7 +114,7 @@ export default function BlogPostPage() {
         <div className="p-6 sm:p-8 rounded-xl bg-white border border-gold-subtle shadow-luxury-sm mb-16 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
           <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-gold shrink-0">
             <img
-              src={post.author.avatar}
+              src={assetUrl(post.author.avatar)}
               alt={post.author.name}
               className="w-full h-full object-cover"
             />

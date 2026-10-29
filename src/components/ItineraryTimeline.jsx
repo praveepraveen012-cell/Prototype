@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Mountain, Sun, Compass, Sparkles, ChevronDown } from 'lucide-react';
 import { ITINERARY_DATA, PACKAGES } from '../data/yatraData';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function ItineraryTimeline({ initialRoute = 1, title, subtitle }) {
   const [selectedRoute, setSelectedRoute] = useState(initialRoute);
@@ -164,7 +165,7 @@ export default function ItineraryTimeline({ initialRoute = 1, title, subtitle })
                   <div className="mt-4 pt-3 border-t border-gold/20 flex items-center space-x-3">
                     <div className="w-16 h-12 rounded overflow-hidden shrink-0 border border-gold/40">
                       <img
-                        src={dayImage.src}
+                        src={assetUrl(dayImage.src)}
                         alt={dayImage.caption}
                         className="w-full h-full object-cover"
                       />

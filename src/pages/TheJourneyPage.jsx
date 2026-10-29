@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mountain, Compass, Sun, Moon, Shield, Sparkles, ChevronRight, ArrowRight, MapPin } from 'lucide-react';
 import { BRAND, HIGHLIGHTS_METRICS } from '../data/yatraData';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function TheJourneyPage() {
   const sacredLandmarks = [
@@ -118,7 +119,7 @@ export default function TheJourneyPage() {
           <div className="lg:col-span-6">
             <div className="rounded-xl overflow-hidden shadow-luxury border border-gold-subtle img-zoom-container">
               <img
-                src="/images/kedarnath-sacred-peak.jpg"
+                src={assetUrl('/images/kedarnath-sacred-peak.jpg')}
                 alt="Sacred Himalayan Shrine and Towering Peaks"
                 className="w-full h-[380px] object-cover object-center"
               />
@@ -147,7 +148,7 @@ export default function TheJourneyPage() {
                 <div>
                   <div className="aspect-[16/10] overflow-hidden relative img-zoom-container">
                     <img
-                      src={lm.image}
+                      src={assetUrl(lm.image)}
                       alt={lm.title}
                       className="w-full h-full object-cover"
                     />
@@ -201,7 +202,7 @@ export default function TheJourneyPage() {
               >
                 <div className="aspect-[16/10] overflow-hidden relative img-zoom-container">
                   <img
-                    src={shrine.image}
+                    src={assetUrl(shrine.image)}
                     alt={shrine.title}
                     className="w-full h-full object-cover object-center"
                   />

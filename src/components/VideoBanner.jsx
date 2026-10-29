@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Volume2, VolumeX, Play, Pause, ChevronDown, Compass, Calendar, Sparkles } from 'lucide-react';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function VideoBanner() {
   const videoRef = useRef(null);
@@ -49,8 +50,8 @@ export default function VideoBanner() {
       <div className="absolute inset-0 w-full h-full">
         <video
           ref={videoRef}
-          src="/videos/kailash-cinematic.mp4"
-          poster="/images/hero-poster.jpg"
+          src={assetUrl('/videos/kailash-cinematic.mp4')}
+          poster={assetUrl('/images/hero-poster.jpg')}
           autoPlay
           muted={isMuted}
           loop

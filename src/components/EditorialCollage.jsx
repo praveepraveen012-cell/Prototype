@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Compass, MapPin } from 'lucide-react';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function EditorialCollage() {
   const galleryItems = [
@@ -73,7 +74,7 @@ export default function EditorialCollage() {
             >
               <div className={`w-full h-full min-h-[260px] img-zoom-container ${item.aspect}`}>
                 <img
-                  src={item.src}
+                  src={assetUrl(item.src)}
                   alt={item.title}
                   className="w-full h-full object-cover object-center brightness-90 group-hover:brightness-100 transition-all duration-700"
                 />
