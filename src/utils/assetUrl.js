@@ -13,3 +13,4 @@ export function assetUrl(path) {
   const cleanBase = base.endsWith('/') ? base : `${base}/`;
   return `${cleanBase}${cleanPath}`;
 }
+

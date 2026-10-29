@@ -1,41 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Volume2, VolumeX, Play, Pause, ChevronDown, Compass, Calendar, Sparkles } from 'lucide-react';
+import { Compass, Calendar, Mountain, Sparkles, ShieldCheck } from 'lucide-react';
 import { assetUrl } from '../utils/assetUrl';
 
 export default function VideoBanner() {
   const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(() => {
-        // Autoplay may be restricted by browser until interaction
-        setIsPlaying(false);
+        // Autoplay handled by browser policies
       });
     }
   }, []);
-
-  const toggleSound = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        videoRef.current.play();
-        setIsPlaying(true);
-      }
-    }
-  };
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -53,7 +31,7 @@ export default function VideoBanner() {
           src={assetUrl('/videos/kailash-cinematic.mp4')}
           poster={assetUrl('/images/hero-poster.jpg')}
           autoPlay
-          muted={isMuted}
+          muted
           loop
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
@@ -67,34 +45,13 @@ export default function VideoBanner() {
         <div className="absolute inset-0 bg-radial-vignette opacity-50 pointer-events-none" />
       </div>
 
-      {/* Floating Video Controls in Bottom Right */}
-      <div className="absolute bottom-10 right-6 sm:right-10 z-20 flex items-center space-x-2 bg-evergreen/70 backdrop-blur-md border border-gold/30 rounded-full px-3 py-1.5 shadow-luxury">
-        <button
-          onClick={togglePlay}
-          className="text-gold hover:text-ivory p-1.5 transition-colors focus:outline-none"
-          title={isPlaying ? 'Pause video' : 'Play video'}
-          aria-label={isPlaying ? 'Pause video' : 'Play video'}
-        >
-          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-        </button>
-        <span className="w-px h-3 bg-gold/30" />
-        <button
-          onClick={toggleSound}
-          className="text-gold hover:text-ivory p-1.5 transition-colors focus:outline-none"
-          title={isMuted ? 'Unmute video' : 'Mute video'}
-          aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-        >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-        </button>
-      </div>
-
       {/* Hero Editorial Composition */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-16">
         
         {/* Eyebrow Label with decorative gold lines */}
         <div className="inline-flex items-center space-x-3 mb-6 animate-fade-in">
           <span className="w-8 sm:w-12 h-px bg-gold" />
-          <span className="text-[11px] sm:text-xs uppercase tracking-[0.28em] text-gold-light font-medium bg-evergreen/60 backdrop-blur-sm px-3.5 py-1 border border-gold/30 rounded-full">
+          <span className="text-[11px] sm:text-xs uppercase tracking-[0.28em] text-gold-light font-medium bg-evergreen/60 backdrop-blur-sm px-4 py-1.5 border border-gold/30 rounded-full">
             THE SACRED JOURNEY · 2027
           </span>
           <span className="w-8 sm:w-12 h-px bg-gold" />
@@ -115,7 +72,7 @@ export default function VideoBanner() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mb-14">
           <button
             onClick={() => scrollToSection('journey-significance')}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-evergreen font-semibold text-xs uppercase tracking-[0.18em] px-8 py-4 rounded shadow-gold-glow hover:shadow-luxury transition-all transform hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-evergreen font-bold text-xs uppercase tracking-[0.18em] px-8 py-4 rounded shadow-gold-glow hover:shadow-luxury transition-all transform hover:-translate-y-0.5"
           >
             <Compass className="w-4 h-4 text-evergreen" />
             <span>Explore the Journey</span>
@@ -123,38 +80,84 @@ export default function VideoBanner() {
 
           <Link
             to="/departures"
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-forest/80 hover:bg-forest text-ivory hover:text-gold border border-gold/40 hover:border-gold text-xs uppercase tracking-[0.18em] px-8 py-4 rounded backdrop-blur-sm transition-all transform hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-forest/80 hover:bg-forest text-ivory hover:text-gold border border-gold/40 hover:border-gold text-xs uppercase tracking-[0.18em] px-8 py-4 rounded backdrop-blur-sm transition-all transform hover:-translate-y-0.5 font-medium"
           >
             <Calendar className="w-4 h-4 text-gold" />
             <span>View 2027 Departures</span>
           </Link>
         </div>
 
-        {/* Editorial Feature Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto pt-6 border-t border-gold/25 text-left">
-          <div className="bg-evergreen/60 backdrop-blur-sm p-3 rounded border border-gold/20">
-            <span className="block text-[10px] uppercase tracking-luxury text-gold">Elevation</span>
-            <span className="font-serif text-lg sm:text-xl text-ivory font-medium">5,650 m</span>
-            <span className="block text-[10px] text-sage/70">Dolma La Pass</span>
+        {/* Redesigned 4 Editorial Stat Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl sm:max-w-5xl mx-auto pt-6 border-t border-gold/25 text-left">
+          
+          {/* Card 1: Elevation */}
+          <div className="bg-gradient-to-b from-evergreen/80 to-forest/85 backdrop-blur-md p-4 sm:p-5 rounded-xl border border-gold/30 hover:border-gold/70 transition-all duration-300 shadow-luxury group relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/60 to-transparent group-hover:via-gold transition-all" />
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-gold font-semibold">
+                Elevation
+              </span>
+              <Mountain className="w-3.5 h-3.5 text-gold/70" />
+            </div>
+            <span className="font-serif text-2xl sm:text-3xl text-ivory font-medium group-hover:text-gold-shimmer transition-colors block">
+              5,650 m
+            </span>
+            <span className="text-xs text-sage-light/80 font-light block mt-0.5 truncate">
+              Dolma La Pass
+            </span>
           </div>
 
-          <div className="bg-evergreen/60 backdrop-blur-sm p-3 rounded border border-gold/20">
-            <span className="block text-[10px] uppercase tracking-luxury text-gold">Circumambulation</span>
-            <span className="font-serif text-lg sm:text-xl text-ivory font-medium">52 km</span>
-            <span className="block text-[10px] text-sage/70">Sacred 3-Day Parikrama</span>
+          {/* Card 2: Parikrama (Fixed width & clean label) */}
+          <div className="bg-gradient-to-b from-evergreen/80 to-forest/85 backdrop-blur-md p-4 sm:p-5 rounded-xl border border-gold/30 hover:border-gold/70 transition-all duration-300 shadow-luxury group relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/60 to-transparent group-hover:via-gold transition-all" />
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-gold font-semibold">
+                Parikrama
+              </span>
+              <Compass className="w-3.5 h-3.5 text-gold/70" />
+            </div>
+            <span className="font-serif text-2xl sm:text-3xl text-ivory font-medium group-hover:text-gold-shimmer transition-colors block">
+              52 km
+            </span>
+            <span className="text-xs text-sage-light/80 font-light block mt-0.5 truncate">
+              Sacred 3-Day Circuit
+            </span>
           </div>
 
-          <div className="bg-evergreen/60 backdrop-blur-sm p-3 rounded border border-gold/20">
-            <span className="block text-[10px] uppercase tracking-luxury text-gold">Sacred Lake</span>
-            <span className="font-serif text-lg sm:text-xl text-ivory font-medium">4,590 m</span>
-            <span className="block text-[10px] text-sage/70">Manasarovar Puja</span>
+          {/* Card 3: Sacred Lake */}
+          <div className="bg-gradient-to-b from-evergreen/80 to-forest/85 backdrop-blur-md p-4 sm:p-5 rounded-xl border border-gold/30 hover:border-gold/70 transition-all duration-300 shadow-luxury group relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/60 to-transparent group-hover:via-gold transition-all" />
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-gold font-semibold">
+                Sacred Lake
+              </span>
+              <Sparkles className="w-3.5 h-3.5 text-gold/70" />
+            </div>
+            <span className="font-serif text-2xl sm:text-3xl text-ivory font-medium group-hover:text-gold-shimmer transition-colors block">
+              4,590 m
+            </span>
+            <span className="text-xs text-sage-light/80 font-light block mt-0.5 truncate">
+              Manasarovar Puja
+            </span>
           </div>
 
-          <div className="bg-evergreen/60 backdrop-blur-sm p-3 rounded border border-gold/20">
-            <span className="block text-[10px] uppercase tracking-luxury text-gold">Care Ratio</span>
-            <span className="font-serif text-lg sm:text-xl text-ivory font-medium">1 : 4</span>
-            <span className="block text-[10px] text-sage/70">Sherpas & Medics</span>
+          {/* Card 4: Care Ratio */}
+          <div className="bg-gradient-to-b from-evergreen/80 to-forest/85 backdrop-blur-md p-4 sm:p-5 rounded-xl border border-gold/30 hover:border-gold/70 transition-all duration-300 shadow-luxury group relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/60 to-transparent group-hover:via-gold transition-all" />
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-gold font-semibold">
+                Care Ratio
+              </span>
+              <ShieldCheck className="w-3.5 h-3.5 text-gold/70" />
+            </div>
+            <span className="font-serif text-2xl sm:text-3xl text-ivory font-medium group-hover:text-gold-shimmer transition-colors block">
+              1 : 4
+            </span>
+            <span className="text-xs text-sage-light/80 font-light block mt-0.5 truncate">
+              Sherpas & Medics
+            </span>
           </div>
+
         </div>
       </div>
 
@@ -168,4 +171,3 @@ export default function VideoBanner() {
     </section>
   );
 }
-

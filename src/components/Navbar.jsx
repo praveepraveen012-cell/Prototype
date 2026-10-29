@@ -49,44 +49,44 @@ export default function Navbar({ onOpenEnquiry }) {
             : 'bg-evergreen py-4 border-b border-gold/20'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-8 lg:px-10 xl:px-14 2xl:px-16">
           <div className="flex items-center justify-between">
             {/* Brand Logo & Wordmark */}
-            <Link to="/" className="flex items-center space-x-3 group text-left">
-              <div className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center bg-forest/80 group-hover:border-gold transition-colors">
-                <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+            <Link to="/" className="flex items-center space-x-3.5 group text-left shrink-0">
+              <div className="w-11 h-11 rounded-full border border-gold/60 flex items-center justify-center bg-forest/80 group-hover:border-gold transition-colors shadow-inner">
+                <svg className="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
                   <path d="M12 2L2 22h20L12 2z" strokeLinejoin="round" />
                   <path d="M12 8v10" />
                   <circle cx="12" cy="18" r="1" fill="#B99A5B" />
                 </svg>
               </div>
               <div className="flex flex-col">
-                <span className="font-display tracking-[0.2em] text-sm md:text-base font-semibold text-ivory group-hover:text-gold transition-colors">
+                <span className="font-display tracking-[0.22em] text-base md:text-lg font-semibold text-ivory group-hover:text-gold transition-colors">
                   SHLLOKA YATRA
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-gold-light/90">
+                <span className="text-[10px] md:text-[11px] uppercase tracking-[0.26em] text-gold-light font-medium">
                   Kailash 2027 · Editorial
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-7">
+            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-9 2xl:space-x-11">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`text-xs uppercase tracking-[0.18em] transition-colors relative py-1 ${
+                    className={`text-xs xl:text-[13px] uppercase tracking-[0.2em] font-medium transition-colors relative py-1.5 ${
                       isActive
-                        ? 'text-gold font-medium'
-                        : 'text-ivory/80 hover:text-ivory'
+                        ? 'text-gold font-semibold'
+                        : 'text-ivory/85 hover:text-ivory'
                     }`}
                   >
                     {link.name}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gold rounded-full" />
+                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
                     )}
                   </Link>
                 );
@@ -94,19 +94,19 @@ export default function Navbar({ onOpenEnquiry }) {
             </nav>
 
             {/* Right Action Controls */}
-            <div className="hidden sm:flex items-center space-x-4">
+            <div className="hidden sm:flex items-center space-x-4 shrink-0">
               <button
                 onClick={onOpenEnquiry}
-                className="hidden md:inline-flex items-center space-x-1.5 text-xs uppercase tracking-wider text-sage-light hover:text-gold transition-colors py-1.5 px-3 rounded border border-sage/20 hover:border-gold/40"
+                className="hidden md:inline-flex items-center space-x-2 text-xs uppercase tracking-wider text-ivory hover:text-gold hover:border-gold hover:bg-forest/60 transition-all py-2.5 px-4 rounded border border-gold/30"
                 title="Bespoke Enquiry Concierge"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-gold" />
-                <span>Enquire</span>
+                <span className="font-medium">Enquire</span>
               </button>
 
               <Link
                 to="/book"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-evergreen font-semibold text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded shadow-gold-glow hover:shadow-luxury transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-evergreen font-bold text-xs uppercase tracking-[0.18em] px-6 py-2.5 xl:py-3 rounded shadow-gold-glow hover:shadow-luxury transition-all transform hover:-translate-y-0.5"
               >
                 <span>Reserve Your Place</span>
                 <ChevronRight className="w-3.5 h-3.5" />
